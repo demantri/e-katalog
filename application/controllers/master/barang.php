@@ -1,6 +1,6 @@
 <?php 
 
-class Barang extends CI_Controller{
+class barang extends CI_Controller{
 
 	function __construct(){
 		parent::__construct();	
@@ -26,7 +26,16 @@ class Barang extends CI_Controller{
 
 	public function tambah()
 	{
-		$this->template->load('master/barangf', 'dashboard');
+        $data['kode'] =  $this->barang->kode();
+        $data['jenis'] = $this->barang->get_kategori();
+		$this->template->load('master/barangf', 'dashboard', $data);
 	}
+
+	function get_sub_merk(){
+        if($this->input->post('id_jenisbarang'))
+          {
+           echo $this->barang->get_sub_merk($this->input->post('id_jenisbarang'));
+          }
+    }
 
 }
