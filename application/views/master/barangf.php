@@ -101,6 +101,13 @@
 										</div>
 
 										<div class="control-group">
+											<label class="control-label" for="basicinput">Upload Gambar</label>
+											<div class="controls">
+												<input data-title="A tooltip for the input" type="file" placeholder="Harga Barang" data-original-title="" class="span8 tip">
+											</div>
+										</div>
+
+										<div class="control-group">
 											<div class="controls pull-right">
 												<!-- <button type="submit" class="btn btn-default">Kembali</button> -->
 												<a href="<?php echo site_url('master/barang')?>" class="button btn btn-default">Kembali</a>
@@ -135,28 +142,28 @@
 	<script src="<?php echo base_url() ?>assets2/scripts/flot/jquery.flot.js" type="text/javascript"></script>
 
 	<script>
-$(document).ready(function(){
- $('#jenisbarang').change(function(){
-  var id_jenisbarang = $('#jenisbarang').val();
-  alert(id_jenisbarang);
-
-  if(id_jenisbarang != '')
-  {
-   $.ajax({
-    url:"<?php echo base_url(); ?>master/barang/get_sub_merk",
-    method:"POST",
-    data:{id_jenisbarang:id_jenisbarang},
-    success:function(data)
-    {
-     $('#merk').html(data);
-    }
-   });
-  }
-  else
-  {
-   $('#merk').html('<option value="">Pilih Merk</option>');
-  }
- });
-});
-</script>
+		$(document).ready(function(){
+		 $('#jenisbarang').change(function(){
+		  var id_jenisbarang = $('#jenisbarang').val();
+		  alert(id_jenisbarang);
+		
+		  if(id_jenisbarang != '')
+		  {
+		   $.ajax({
+		    url:"<?php echo base_url(); ?>master/barang/get_sub_merk",
+		    method:"POST",
+		    data:{id_jenisbarang:id_jenisbarang},
+		    success:function(data)
+		    {
+		     $('#merk').html(data);
+		    }
+		   });
+		  }
+		  else
+		  {
+		   $('#merk').html('<option value="">Pilih Merk</option>');
+		  }
+		 });
+		});
+	</script>
 </body>
