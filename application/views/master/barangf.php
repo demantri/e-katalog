@@ -39,12 +39,12 @@
 							</div>
 							<div class="module-body">
  
-									<form class="form-horizontal row-fluid">
+									<form class="form-horizontal row-fluid" method="POST"  action="<?php echo site_url('master/barang/save')?>">
 
 										<div class="control-group">
 											<label class="control-label" for="basicinput">ID Barang</label>
 											<div class="controls">
-												<input data-title="A tooltip for the input" type="text" placeholder="ID" data-original-title="" class="span8 tip" value="<?php echo $kode; ?>" readonly>
+												<input name="id" data-title="A tooltip for the input" type="text" placeholder="ID" data-original-title="" class="span8 tip" value="<?php echo $kode; ?>" readonly>
 											</div>
 										</div>
 
@@ -75,35 +75,35 @@
 										<div class="control-group">
 											<label class="control-label" for="basicinput">Nama Barang</label>
 											<div class="controls">
-												<input data-title="A tooltip for the input" type="text" placeholder="Nama barang" data-original-title="" class="span8 tip">
+												<input name="namabarang" data-title="A tooltip for the input" type="text" placeholder="Nama barang" data-original-title="" class="span8 tip">
 											</div>
 										</div>
 
 										<div class="control-group">
 											<label class="control-label" for="basicinput">Warna Barang</label>
 											<div class="controls">
-												<input data-title="A tooltip for the input" type="text" placeholder="Warna Barang" data-original-title="" class="span8 tip">
+												<input name="warna" data-title="A tooltip for the input" type="text" placeholder="Warna Barang" data-original-title="" class="span8 tip">
 											</div>
 										</div>
 
 										<div class="control-group">
 											<label class="control-label" for="basicinput">Stok Barang</label>
 											<div class="controls">
-												<input data-title="A tooltip for the input" type="text" placeholder="Stok Barang" data-original-title="" class="span8 tip">
+												<input name="stok" data-title="A tooltip for the input" type="text" placeholder="Stok Barang" data-original-title="" class="span8 tip">
 											</div>
 										</div>
 
 										<div class="control-group">
 											<label class="control-label" for="basicinput">Harga Barang</label>
 											<div class="controls">
-												<input data-title="A tooltip for the input" type="text" placeholder="Harga Barang" data-original-title="" class="span8 tip">
+												<input name="harga" data-title="A tooltip for the input" type="text" placeholder="Harga Barang" data-original-title="" class="span8 tip">
 											</div>
 										</div>
 
 										<div class="control-group">
 											<label class="control-label" for="basicinput">Upload Gambar</label>
 											<div class="controls">
-												<input data-title="A tooltip for the input" type="file" placeholder="Harga Barang" data-original-title="" class="span8 tip">
+												<input name="file_upload" data-title="A tooltip for the input" type="file" placeholder="Harga Barang" data-original-title="" class="span8 tip">
 											</div>
 										</div>
 
@@ -111,7 +111,8 @@
 											<div class="controls pull-right">
 												<!-- <button type="submit" class="btn btn-default">Kembali</button> -->
 												<a href="<?php echo site_url('master/barang')?>" class="button btn btn-default">Kembali</a>
-												<button type="submit" class="btn btn-success">Simpan</button>
+												<!-- <button type="submit" class="btn btn-success">Simpan</button> -->
+												<input type="submit" class="btn btn-success" value="Simpan" > 
 											</div>
 										</div>
 									</form>
@@ -145,7 +146,7 @@
 		$(document).ready(function(){
 		 $('#jenisbarang').change(function(){
 		  var id_jenisbarang = $('#jenisbarang').val();
-		  alert(id_jenisbarang);
+		  // alert(id_jenisbarang);
 		
 		  if(id_jenisbarang != '')
 		  {

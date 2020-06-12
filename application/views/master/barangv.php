@@ -46,25 +46,25 @@
 									<tr>
 									  <th>*</th>
 									  <th>ID Barang</th>
-									  <th>Nama</th>
 									  <th>Jenis</th>
+									  <th>Merk</th>
+									  <th>Nama</th>
 									  <th>Warna</th>
 									  <th>Stok</th>
 									  <th>Harga</th>
 									  <th colspan="2" style="text-align: center;">Aksi</th>
 									</tr>
+									<?php $no = 1;?>
 								  </thead>
 								  <tbody>
 									<?php foreach ($barang as $item ) { 
-
-										$no = 1; $no++;
-
 										?>
 								  		<tr>
 									  		<td><?php echo $no++?></td>
 									  		<td><?php echo $item['id']?></td>
+									  		<td><?php echo $item['jenis']?></td>
+									  		<td><?php echo $item['merk']?></td>
 									  		<td><?php echo $item['namabarang']?></td>
-									  		<td><?php echo $item['jenisbarang']?></td>
 									  		<td><?php echo $item['warna']?></td>
 									  		<td><?php echo $item['stok']?></td>
 									  		<td><?php echo $item['harga']?></td>
