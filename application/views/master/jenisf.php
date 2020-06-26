@@ -39,19 +39,24 @@
 							</div>
 							<div class="module-body">
  
-									<form class="form-horizontal row-fluid">
+									<form class="form-horizontal row-fluid" method="POST" action="<?php echo site_url('master/jenisbarang/save')?>">
 
+										<div class="alert">
+											<button type="button" class="close" data-dismiss="alert">×</button>
+											<strong>Warning!</strong> Something fishy here!
+										</div>
+										
 										<div class="control-group">
 											<label class="control-label" for="basicinput">ID Jenis</label>
 											<div class="controls">
-												<input data-title="A tooltip for the input" type="text" placeholder="ID" data-original-title="" class="span8 tip">
+												<input data-title="A tooltip for the input" type="text" placeholder="ID" data-original-title="" class="span8 tip" value="<?php echo $kode; ?>" name="id" readonly>
 											</div>
 										</div>
 
 										<div class="control-group">
 											<label class="control-label" for="basicinput">Jenis Barang</label>
 											<div class="controls">
-												<input data-title="A tooltip for the input" type="text" placeholder="Nama barang" data-original-title="" class="span8 tip">
+												<input data-title="A tooltip for the input" type="text" placeholder="Nama barang" name="jenis" data-original-title="" class="span8 tip">
 											</div>
 										</div>
 
@@ -59,7 +64,8 @@
 											<div class="controls pull-right">
 												<!-- <button type="submit" class="btn btn-default">Kembali</button> -->
 												<a href="<?php echo site_url('master/jenisbarang')?>" class="button btn btn-default">Kembali</a>
-												<button type="submit" class="btn btn-success">Simpan</button>
+												<!-- <button type="submit" class="btn btn-success">Simpan</button> -->
+												<input type="submit" name="" value="Simpan" class="btn btn-success">
 											</div>
 										</div>
 									</form>

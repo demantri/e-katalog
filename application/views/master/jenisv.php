@@ -52,7 +52,7 @@
 									<?php $no = 1;?>
 								  </thead>
 								  <tbody>
-									<?php foreach ($merk as $item ) { ?>
+									<?php foreach ($jenis as $item ) { ?>
 								  		<tr>
 									  		<td><?php echo $no++ ?></td>
 									  		<td><?php echo $item['id']?></td>
