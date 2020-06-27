@@ -56,7 +56,7 @@
 								  		<tr>
 									  		<td><?php echo $no++ ?></td>
 									  		<td><?php echo $item['id']?></td>
-									  		<td><?php echo $item['merk']?></td>
+									  		<td><?php echo $item['nama_merk']?></td>
 									  		<td>
 									  			<a href="">Edit</a>
 									  		</td>

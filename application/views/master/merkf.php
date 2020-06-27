@@ -39,19 +39,31 @@
 							</div>
 							<div class="module-body">
  
-									<form class="form-horizontal row-fluid">
+									<form class="form-horizontal row-fluid" method="POST" action="<?php echo site_url('master/merk/save')?>">
 
 										<div class="control-group">
 											<label class="control-label" for="basicinput">ID Jenis</label>
 											<div class="controls">
-												<input data-title="A tooltip for the input" type="text" placeholder="ID" data-original-title="" class="span8 tip">
+												<input data-title="A tooltip for the input" type="text" placeholder="ID" data-original-title="" class="span8 tip" value="<?php echo $kode ?>" name="id" readonly>
+											</div>
+										</div>
+
+										<div class="control-group">
+											<label class="control-label" for="basicinput">Kategori</label>
+											<div class="controls">
+												<select name="id_jenis" id="jenisbarang" tabindex="1" data-placeholder="Pilih Jenis" class="span8">
+													<option value="">Pilih Jenis</option>
+													<?php foreach($jenis as $name) { ?>
+														<option value="<?= $name['id'] ?>"><?= $name['jenis'] ?></option>
+													<?php } ?>
+												</select>
 											</div>
 										</div>
 
 										<div class="control-group">
 											<label class="control-label" for="basicinput">Merk</label>
 											<div class="controls">
-												<input data-title="A tooltip for the input" type="text" placeholder="Merk" data-original-title="" class="span8 tip">
+												<input data-title="A tooltip for the input" type="text" placeholder="Masukan disini.." data-original-title="" class="span8 tip" name="nama_merk">
 											</div>
 										</div>
 
@@ -76,8 +88,6 @@
 
 	<div class="footer">
 		<div class="container">
-			 
-
 			<b class="copyright">&copy; 2014 Edmin - EGrappler.com </b> All rights reserved.
 		</div>
 	</div>

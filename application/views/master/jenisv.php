@@ -37,8 +37,10 @@
 							</div>
 
 							<div class="module-body">
+								
+				                <?php echo $this->session->flashdata('success_message') ?>
+
 								<p>
-									<!-- <button class="btn btn-default" href="<?php echo site_url('master/barang/view') ?>"><i class="menu-icon icon-plus"></i> Tambah</button> -->
 									<a href="<?php echo site_url('master/jenisbarang/tambah')?>" class="button btn btn-default"><i class="menu-icon icon-plus"></i> Tambah</a>
 								</p>
 								<table class="table table-striped table-bordered table-condensed">

@@ -86,4 +86,23 @@ Class barang_model extends CI_Model{
     return $kodejadi;
   }
 
+  public function id_merk(){
+    $this->db->select('RIGHT(merk.id, 2) as kode', FALSE);
+    $this->db->order_by('id', 'DESC');
+    $this->db->limit(1);
+
+    $query =  $this->db->get('merk');
+    if ($query->num_rows()<>0) {
+      $data = $query->row();
+      $kode = intval($data->kode) + 1;
+    }
+    else
+    {
+      $kode = 1;
+    }
+    $kodemax = str_pad($kode, 2, "0", STR_PAD_LEFT);
+    $kodejadi = "M".$kodemax;
+    return $kodejadi;
+  }
+
 }
