@@ -13,16 +13,31 @@ class jenisbarang extends CI_Controller{
 
 	public function index(){
 		$data['jenis'] = $this->jenis->get_jenis();
+		// print_r($data['jenis']);exit;
 		$this->template->load('master/jenisv', 'dashboard', $data);
 		// $this->template->load('layout/admin/home', 'dashboard');
 	}
 
+<<<<<<< HEAD
+	// public function view()
+	// {
+	// 	$data['jenis'] = $this->jenis->get_jenis();
+	// 	// print_r($data['jenis']);
+	// 	$this->template->load('master/jenisv', 'dashboard', $data);
+	// }
+
+	// public function tambah()
+	// {
+	// 	$this->template->load('master/jenisf', 'dashboard');
+	// }
+=======
 	public function tambah()
 	{
 		$data['kode'] = $this->jenis->id_jenis();
 		// print($data['kode']);exit;
 		$this->template->load('master/jenisf', 'dashboard', $data);
 	}
+>>>>>>> 9d3a5d2aa7d44b27f0e99eb66aa85bd40e3263ab
 
     public function save()
     {
