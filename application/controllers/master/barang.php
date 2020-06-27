@@ -100,14 +100,14 @@ class barang extends CI_Controller{
                     'is_natural'	=> 'Harus berupa angka!', 
                     'required' 		=> 'Harus diisi!'
                 )
-            ), 
+            ),
             array(
-                'field' => 'file_upload',
-                'label' => 'Foto',
-                'rules' => 'max_size[file_upload, 1024]|ext_in',
+                'field' => 'nama_file',
+                'label' => 'File',
+                'rules' => 'required',
                 'errors' => array(
-                    'max_size' 	=> 'melebihi ukuran!',
-                    'ext_in'	=> 'harus berupa gambar!'
+                    // 'is_natural'	=> 'Harus berupa angka!', 
+                    'required' 		=> '%s harus diisi!'
                 )
             )
             
@@ -117,13 +117,32 @@ class barang extends CI_Controller{
         // $this->form_validation->set_error_delimiters('<div class="alert alert-danger"><li>', '</li></div>');
         // print_r($data);exit;
 
+        $config['upload_path']          = './uploads/';
+		$config['allowed_types']        = 'gif|jpg|png';
+		$config['max_size']             = 2999;
+		$config['max_width']            = 1920;
+		$config['max_height']           = 1080;
+		$config['encrypt_name']			= TRUE;
+		$this->load->library('upload', $config);
+
         if ($this->form_validation->run() == FALSE){
-            $this->session->set_flashdata('error_message', show_alert('<i class="fa fa-close"></i><strong>Data gagal tersimpan!</strong>','danger'));
+        $this->session->set_flashdata('error_message', show_alert('<i class="fa fa-close"></i><strong>Data gagal tersimpan!</strong>','danger'));
         $this->tambah();
-        }else{
+	        if (!$this->upload->do_upload('nama_file')) {
+					redirect('master/barang/tambah');
+			} else {
+				$data['nama_file'] = $this->upload->data("file_name");
+				$data['keterangan'] = $this->input->post('keterangan');
+				$data['tipe_berkas'] = $this->upload->data('file_ext');
+				$data['ukuran_berkas'] = $this->upload->data('file_size');
+
+				$this->db->insert('upload_file',$data);
+				redirect('master/barang');
+			} 
+		}else{
             $this->session->set_flashdata('success_message', show_alert('<i class="fa fa-check"></i><strong>Berhasil!</strong> Data tersimpan.','success'));
-            $this->db->insert('merk', $_POST);
-            redirect('master/merk');
+            $this->db->insert('barang', $_POST);
+            redirect('master/barang');
         }
-	} 
+	}
 }

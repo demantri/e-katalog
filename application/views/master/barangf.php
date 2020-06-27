@@ -123,10 +123,10 @@
 										<div class="control-group">
 											<label class="control-label" for="basicinput">Upload Gambar</label>
 											<div class="controls">
-												<input name="file_upload" data-title="A tooltip for the input" type="file" placeholder="Upload Barang" data-original-title="" class="span8 tip" name="foto">
+												<input name="nama_file" data-title="A tooltip for the input" type="file" placeholder="Upload Barang" data-original-title="" class="span8 tip" name="foto">
 											</div>
 											<div class="controls" style="color: red; font-size: 10px;">
-													<?php echo form_error('file_upload')?>
+													<?php echo form_error('nama_file')?>
 											</div>
 										</div>
 

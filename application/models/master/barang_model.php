@@ -9,7 +9,7 @@ Class barang_model extends CI_Model{
   }
     
    public function get_data(){
-        $this->db->select('barang.id, jenis, nama_merk as merk, namabarang, warna, stok, harga, foto');
+        $this->db->select('barang.id, jenis, nama_merk as merk, namabarang, warna, stok, harga, nama_file');
         $this->db->from('barang');
         $this->db->join('merk', 'merk.id = barang.id_merk');
         $this->db->join('jenisbarang', 'jenisbarang.id = barang.id_jenisbarang');
