@@ -38,29 +38,92 @@ class barang extends CI_Controller{
           }
     }
 
+
+
     public function save(){
-		$this->form_validation->set_rules('id', 'ID Barang', 'required|is_unique[barang.id]');
-		$this->form_validation->set_rules('id_jenisbarang', 'Jenis Barang', 'required');
-		$this->form_validation->set_rules('id_merk', 'Merk', 'required');
-		$this->form_validation->set_rules('namabarang', 'Nama Barang', 'required');
-		$this->form_validation->set_rules('warna', 'Warna', 'required');
-		$this->form_validation->set_rules('stok', 'Stok', 'required');
-		$this->form_validation->set_rules('harga', 'Harga', 'required');
-		$this->form_validation->set_rules('file_upload', 'File Upload', 'required');
+		$data = array(
+            array(
+                'field' => 'id',
+                'label' => 'ID Barang',
+                'rules' => 'required|is_unique[merk.id]',
+                'errors' => array(
+                'required' => '%s tidak boleh kosong',
+                'is_unique' => "".$_POST['id']." sudah terdaftar!"
+                )
+            ),
+            array(
+                'field' => 'id_jenisbarang',
+                'label' => 'Jenis barang',
+                'rules' => 'required',
+                'errors' => array(
+                    'required' => '%s harus dipilih!'
+                )
+            ),
+            array(
+                'field' => 'id_merk',
+                'label' => 'Merk',
+                'rules' => 'required',
+                'errors' => array(
+                    'required' => '%s harus dipilih!'
+                )
+            ),
+            array(
+                'field' => 'namabarang',
+                'label' => 'Nama barang',
+                'rules' => 'required',
+                'errors' => array(
+                    'required' => '%s harus tidak boleh kosong.'
+                )
+            ),
+            array(
+                'field' => 'warna',
+                'label' => 'Warna',
+                'rules' => 'required',
+                'errors' => array(
+                    'required' => '%s harus dipilih!'
+                )
+            ),
+            array(
+                'field' => 'stok',
+                'label' => 'Stok',
+                'rules' => 'is_natural|required',
+                'errors' => array(
+                    'is_natural' => 'Harus berupa angka!',
+                    'required' 		=> 'Harus diisi!'
+                )
+            ),
+            array(
+                'field' => 'harga',
+                'label' => 'Harga',
+                'rules' => 'is_natural|required',
+                'errors' => array(
+                    'is_natural'	=> 'Harus berupa angka!', 
+                    'required' 		=> 'Harus diisi!'
+                )
+            ), 
+            array(
+                'field' => 'file_upload',
+                'label' => 'Foto',
+                'rules' => 'max_size[file_upload, 1024]|ext_in',
+                'errors' => array(
+                    'max_size' 	=> 'melebihi ukuran!',
+                    'ext_in'	=> 'harus berupa gambar!'
+                )
+            )
+            
+        );
+        
+        $this->form_validation->set_rules($data);
+        // $this->form_validation->set_error_delimiters('<div class="alert alert-danger"><li>', '</li></div>');
+        // print_r($data);exit;
 
-		if ($this->form_validation->run() == TRUE) {
-			if($this->model->save()){
-				$this->session->set_flashdata('notif', '<div class="alert alert-success">Berhasil.</div>');
-				redirect('pegawai');
-			}else{
-				$this->session->set_flashdata('notif', '<div class="alert alert-danger">Terjadi Kesalahan</div>');
-				redirect('pegawai');
-			}
-		} else {
-			$this->tambah();
-		}
+        if ($this->form_validation->run() == FALSE){
+            $this->session->set_flashdata('error_message', show_alert('<i class="fa fa-close"></i><strong>Data gagal tersimpan!</strong>','danger'));
+        $this->tambah();
+        }else{
+            $this->session->set_flashdata('success_message', show_alert('<i class="fa fa-check"></i><strong>Berhasil!</strong> Data tersimpan.','success'));
+            $this->db->insert('merk', $_POST);
+            redirect('master/merk');
+        }
 	} 
-
-    
-
 }

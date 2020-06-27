@@ -19,6 +19,7 @@
                                     <ul id="toggleMaster" class="collapse unstyled">
                                         <li><a href="other-login.html"><i class="icon-inbox"></i>User </a></li>
                                         <li><a href="other-login.html"><i class="icon-inbox"></i>Member </a></li>
+                                        <li><a href="<?php echo site_url('master/upload_image') ?>"><i class="icon-inbox"></i>testing </a></li>
                                         <li><a href="<?php echo site_url('master/barang') ?>"><i class="icon-inbox"></i>Barang </a></li>
                                         <li><a href="<?php echo site_url('master/jenisbarang') ?>"><i class="icon-inbox"></i>Jenis Barang </a></li>
                                         <li><a href="<?php echo site_url('master/merk') ?>"><i class="icon-inbox"></i>Merk Barang </a></li>

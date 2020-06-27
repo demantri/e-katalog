@@ -18,7 +18,6 @@ class jenisbarang extends CI_Controller{
 		// $this->template->load('layout/admin/home', 'dashboard');
 	}
 
-<<<<<<< HEAD
 	// public function view()
 	// {
 	// 	$data['jenis'] = $this->jenis->get_jenis();
@@ -30,21 +29,21 @@ class jenisbarang extends CI_Controller{
 	// {
 	// 	$this->template->load('master/jenisf', 'dashboard');
 	// }
-=======
+
 	public function tambah()
 	{
 		$data['kode'] = $this->jenis->id_jenis();
 		// print($data['kode']);exit;
 		$this->template->load('master/jenisf', 'dashboard', $data);
 	}
->>>>>>> 9d3a5d2aa7d44b27f0e99eb66aa85bd40e3263ab
 
     public function save()
     {
         $this->form_validation->set_rules('id', 'ID Jenis', 'required|is_unique[jenisbarang.id]');
-        $this->form_validation->set_rules('jenis', 'Jenis Barang', 'required',
+        $this->form_validation->set_rules('jenis', 'Jenis Barang', 'required|min_length[3]',
         array(
-                'required'      => '* %s tidak boleh kosong.'
+                'required'      => '* %s tidak boleh kosong.',
+                'min_length'    => '* min 3 karakter.'
             ));
 
         if ($this->form_validation->run() == FALSE){

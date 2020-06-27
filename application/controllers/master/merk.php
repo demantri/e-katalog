@@ -49,20 +49,23 @@ class merk extends CI_Controller{
             array(
                 'field' => 'nama_merk',
                 'label' => 'Nama Merk',
-                'rules' => 'required',
+                'rules' => 'required|is_unique[merk.nama_merk]',
                 'errors' => array(
-                    'required' => '%s harus diisi!'
+                    'required'  => '%s harus diisi!',
+                    'is_unique' => 'Merk sudah tersimpan sebelumnya, silahkan tambah merk baru..'
                 )
               )
             
         );
         
-        $this->form_validation->set_error_delimiters('<div class="alert alert-danger"><li>', '</li></div>');
         $this->form_validation->set_rules($config);
+        // $this->form_validation->set_error_delimiters('<div class="alert alert-danger"><li>', '</li></div>');
 
         if ($this->form_validation->run() == FALSE){
+            $this->session->set_flashdata('error_message', show_alert('<i class="fa fa-close"></i><strong>Data gagal tersimpan!</strong>','danger'));
         $this->tambah();
         }else{
+            $this->session->set_flashdata('success_message', show_alert('<i class="fa fa-check"></i><strong>Berhasil!</strong> Data tersimpan.','success'));
             $this->db->insert('merk', $_POST);
             redirect('master/merk');
         }

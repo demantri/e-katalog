@@ -43,24 +43,28 @@
 								</div>
 
 								<p>
-									<a href="<?php echo site_url('master/merk/tambah')?>" class="button btn btn-default"><i class="menu-icon icon-plus"></i> Tambah</a>
+									<a href="<?php echo site_url('master/upload_image/add')?>" class="button btn btn-default"><i class="menu-icon icon-plus"></i> Tambah</a>
 								</p>
 								<table class="table table-striped table-bordered table-condensed">
 								  <thead>
 									<tr>
 									  <th>*</th>
-									  <th>ID</th>
-									  <th>Nama Merk</th>
+									  <!-- <th>ID</th> -->
+									  <th>Nama File</th>
+									  <th>Image</th>
+									  <th>Keterangan</th>
 									  <th colspan="2" style="text-align: center;">Aksi</th>
 									</tr>
 									<?php $no = 1;?>
 								  </thead>
 								  <tbody>
-									<?php foreach ($merk as $item ) { ?>
+									<?php foreach ($file as $item ) { ?>
 								  		<tr>
 									  		<td><?php echo $no++ ?></td>
-									  		<td><?php echo $item['id']?></td>
-									  		<td><?php echo $item['nama_merk']?></td>
+									  		<!-- <td><?php echo $item['id']?></td> -->
+									  		<td><?php echo $item['nama_file']?></td>
+									  		<td><img width="100 " src="<?php echo base_url(); ?>uploads/<?php echo $item['nama_file']; ?>"/></td>
+									  		<td><?php echo $item['keterangan']?></td>
 									  		<td>
 									  			<a href="">Edit</a>
 									  		</td>

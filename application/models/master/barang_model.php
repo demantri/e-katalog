@@ -16,6 +16,10 @@ Class barang_model extends CI_Model{
         $query = $this->db->get();
         return $query->result_array();
       }
+    public function data_upload(){
+        $query = $this->db->get('upload_file');
+        return $query->result_array();
+      }
 
    public function get_jenis(){
         $query = $this->db->get('jenisbarang');
@@ -102,6 +106,25 @@ Class barang_model extends CI_Model{
     }
     $kodemax = str_pad($kode, 2, "0", STR_PAD_LEFT);
     $kodejadi = "M".$kodemax;
+    return $kodejadi;
+  }
+
+  public function kd_upload(){
+    $this->db->select('RIGHT(upload_file.id, 2) as kode', FALSE);
+    $this->db->order_by('id', 'DESC');
+    $this->db->limit(1);
+
+    $query =  $this->db->get('upload_file');
+    if ($query->num_rows()<>0) {
+      $data = $query->row();
+      $kode = intval($data->kode) + 1;
+    }
+    else
+    {
+      $kode = 1;
+    }
+    $kodemax = str_pad($kode, 2, "0", STR_PAD_LEFT);
+    $kodejadi = "file".$kodemax;
     return $kodejadi;
   }
 

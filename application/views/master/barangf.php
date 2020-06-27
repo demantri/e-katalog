@@ -41,6 +41,8 @@
  
 									<form class="form-horizontal row-fluid" method="POST"  action="<?php echo site_url('master/barang/save')?>">
 
+				                	<?php echo $this->session->flashdata('error_message') ?>
+
 										<div class="control-group">
 											<label class="control-label" for="basicinput">ID Barang</label>
 											<div class="controls">
@@ -61,6 +63,9 @@
         											?> 
 												</select>
 											</div>
+											<div class="controls" style="color: red; font-size: 10px;">
+													<?php echo form_error('id_jenisbarang')?>
+											</div>
 										</div>
 
 										<div class="control-group">
@@ -70,12 +75,18 @@
 													<option value="">Pilih Merk</option>
 												</select>
 											</div>
+											<div class="controls" style="color: red; font-size: 10px;">
+													<?php echo form_error('id_merk')?>
+											</div>
 										</div>
 
 										<div class="control-group">
 											<label class="control-label" for="basicinput">Nama Barang</label>
 											<div class="controls">
 												<input name="namabarang" data-title="A tooltip for the input" type="text" placeholder="Nama barang" data-original-title="" class="span8 tip">
+											</div>
+											<div class="controls" style="color: red; font-size: 10px;">
+													<?php echo form_error('namabarang')?>
 											</div>
 										</div>
 
@@ -84,12 +95,18 @@
 											<div class="controls">
 												<input name="warna" data-title="A tooltip for the input" type="text" placeholder="Warna Barang" data-original-title="" class="span8 tip">
 											</div>
+											<div class="controls" style="color: red; font-size: 10px;">
+													<?php echo form_error('warna')?>
+											</div>
 										</div>
 
 										<div class="control-group">
 											<label class="control-label" for="basicinput">Stok Barang</label>
 											<div class="controls">
 												<input name="stok" data-title="A tooltip for the input" type="text" placeholder="Stok Barang" data-original-title="" class="span8 tip">
+											</div>
+											<div class="controls" style="color: red; font-size: 10px;">
+													<?php echo form_error('stok')?>
 											</div>
 										</div>
 
@@ -98,12 +115,18 @@
 											<div class="controls">
 												<input name="harga" data-title="A tooltip for the input" type="text" placeholder="Harga Barang" data-original-title="" class="span8 tip">
 											</div>
+											<div class="controls" style="color: red; font-size: 10px;">
+													<?php echo form_error('harga')?>
+											</div>
 										</div>
 
 										<div class="control-group">
 											<label class="control-label" for="basicinput">Upload Gambar</label>
 											<div class="controls">
-												<input name="file_upload" data-title="A tooltip for the input" type="file" placeholder="Harga Barang" data-original-title="" class="span8 tip">
+												<input name="file_upload" data-title="A tooltip for the input" type="file" placeholder="Upload Barang" data-original-title="" class="span8 tip" name="foto">
+											</div>
+											<div class="controls" style="color: red; font-size: 10px;">
+													<?php echo form_error('file_upload')?>
 											</div>
 										</div>
 
