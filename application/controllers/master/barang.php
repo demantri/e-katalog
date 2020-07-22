@@ -38,7 +38,7 @@ class barang extends CI_Controller{
           }
     }
 
-
+    // test
 
     public function save(){
 		$data = array(
