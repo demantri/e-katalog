@@ -39,47 +39,35 @@
 							</div>
 							<div class="module-body">
  
-									<form class="form-horizontal row-fluid" method="POST" action="<?php echo site_url('master/merk/save')?>">
+									<form class="form-horizontal row-fluid" enctype="multipart/form-data"  method="POST" action="<?php echo site_url('master/upload_image/save')?>">
 
 				                	<?php echo $this->session->flashdata('error_message') ?>
 
-										<div class="control-group">
-											<label class="control-label" for="basicinput">ID merk</label>
+										<!-- <div class="control-group">
+											<label class="control-label" for="basicinput">ID</label>
 											<div class="controls">
 												<input data-title="A tooltip for the input" type="text" placeholder="ID" data-original-title="" class="span8 tip" value="<?php echo $kode ?>" name="id" readonly>
 											</div>
-										</div>
+										</div> -->
 
 										<div class="control-group">
-											<label class="control-label" for="basicinput">Kategori</label>
+											<label class="control-label" for="basicinput">Nama File</label>
 											<div class="controls">
-												<select name="id_jenis" id="jenisbarang" tabindex="1" data-placeholder="Pilih Jenis" class="span8">
-													<option value="">Pilih Jenis</option>
-													<?php foreach($jenis as $name) { ?>
-														<option value="<?= $name['id'] ?>"><?= $name['jenis'] ?></option>
-													<?php } ?>
-												</select>
+												<input name="nama_file" data-title="A tooltip for the input" type="file" placeholder="Nama file.." data-original-title="" class="span8 tip">
 											</div>
 											<div class="controls" style="color: red; font-size: 10px;">
-													<?php echo form_error('id_jenis')?>
+													<?php echo form_error('nama_file')?>
 											</div>
 										</div>
 
 										<div class="control-group">
-											<label class="control-label" for="basicinput">Jenis</label>
+											<label class="control-label" for="basicinput">Keterangan</label>
 											<div class="controls">
-												<input data-title="A tooltip for the input" type="text" placeholder="Merk" data-original-title="" class="span8 tip">
-											</div>
-										</div>
-
-										<div class="control-group">
-											<label class="control-label" for="basicinput">Merk</label>
-											<div class="controls">
-												<input data-title="A tooltip for the input" type="text" placeholder="Masukan disini.." data-original-title="" class="span8 tip" name="nama_merk" autocomplete="off">
+												<input name="keterangan" data-title="A tooltip for the input" type="text" placeholder="Keterangan.." data-original-title="" class="span8 tip">
 											</div>
 											<div class="controls" style="color: red; font-size: 10px;">
-												<?php echo form_error('nama_merk')?>
-											</div>	
+													<?php echo form_error('keterangan')?>
+											</div>
 										</div>
 
 										<div class="control-group">

@@ -41,10 +41,8 @@
  
 									<form class="form-horizontal row-fluid" method="POST" action="<?php echo site_url('master/jenisbarang/save')?>">
 
-										<div class="alert">
-											<button type="button" class="close" data-dismiss="alert">×</button>
-											<strong>Warning!</strong> Something fishy here!
-										</div>
+				                	<?php echo $this->session->flashdata('error_message') ?>
+
 										
 										<div class="control-group">
 											<label class="control-label" for="basicinput">ID Jenis</label>
@@ -56,7 +54,11 @@
 										<div class="control-group">
 											<label class="control-label" for="basicinput">Jenis Barang</label>
 											<div class="controls">
-												<input data-title="A tooltip for the input" type="text" placeholder="Nama barang" name="jenis" data-original-title="" class="span8 tip">
+												<input data-title="A tooltip for the input" type="text" placeholder="Enter here.." name="jenis" data-original-title="" class="span8 tip" autocomplete="off">
+											</div>
+											
+											<div class="controls" style="color: red; font-size: 10px;">
+												<?php echo form_error('jenis')?>
 											</div>
 										</div>
 

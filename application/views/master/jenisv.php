@@ -35,8 +35,12 @@
 							</div>
 
 							<div class="module-body">
+
+								<div id="success-alert">
+									<?php echo $this->session->flashdata('success_message') ?>
+								</div>
+
 								<p>
-									<!-- <button class="btn btn-default" href="<?php echo site_url('master/barang/view') ?>"><i class="menu-icon icon-plus"></i> Tambah</button> -->
 									<a href="<?php echo site_url('master/jenisbarang/tambah')?>" class="button btn btn-default"><i class="menu-icon icon-plus"></i> Tambah</a>
 								</p>
 								<table class="table table-striped table-bordered table-condensed">
@@ -91,5 +95,13 @@
 			$('.dataTables_paginate > a:first-child').append('<i class="icon-chevron-left shaded"></i>');
 			$('.dataTables_paginate > a:last-child').append('<i class="icon-chevron-right shaded"></i>');
 		} );
+	</script>
+	<script>
+		$(document).ready(function(){
+			$("#success-alert").hide();
+            $("#success-alert").fadeTo(2000, 500).slideUp(500, function() {
+            $("#success-alert").slideUp(500);
+            });
+		})
 	</script>
 </body>

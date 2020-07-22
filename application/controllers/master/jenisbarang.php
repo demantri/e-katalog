@@ -17,7 +17,11 @@ class jenisbarang extends CI_Controller{
 		$this->template->load('master/jenisv', 'dashboard', $data);
 		// $this->template->load('layout/admin/home', 'dashboard');
 	}
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> e49683722e01238dbd6960a2b63baa9a1285a645
 	// public function view()
 	// {
 	// 	$data['jenis'] = $this->jenis->get_jenis();
@@ -37,34 +41,24 @@ class jenisbarang extends CI_Controller{
 		$this->template->load('master/jenisf', 'dashboard', $data);
 	}
 
-	public function save(){
-        $config = array(
-            array(
-                'field' => 'id',
-                'label' => 'No Akun',
-                'rules' => 'required|is_unique[jenisbarang.id]',
-                'errors' => array(
-                    'required' => '%s tidak boleh kosong',
-               'is_unique' => "".$_POST['id']." sudah ada di database"
-                )
-            ),
-            array(
-                'field' => 'jenis',
-                'label' => 'Nama Jenis',
-                'rules' => 'required',
-                'errors' => array(
-                    'required' => '%s tidak boleh kosong'
-                )
-              )
-            
-        );
-        
-        $this->form_validation->set_error_delimiters('<div class="alert alert-danger"><li>', '</li></div>');
-        $this->form_validation->set_rules($config);
+    public function save()
+    {
+        $this->form_validation->set_rules('id', 'ID Jenis', 'required|is_unique[jenisbarang.id]');
+        $this->form_validation->set_rules('jenis', 'Jenis Barang', 'required|min_length[3]',
+        array(
+                'required'      => '* %s tidak boleh kosong.',
+                'min_length'    => '* min 3 karakter.'
+            ));
 
         if ($this->form_validation->run() == FALSE){
+<<<<<<< HEAD
             $this->tambah();
+=======
+            $this->session->set_flashdata('error_message', show_alert('<i class="fa fa-close"></i><strong>Data gagal tersimpan!</strong>','danger'));
+        $this->tambah();
+>>>>>>> e49683722e01238dbd6960a2b63baa9a1285a645
         }else{
+            $this->session->set_flashdata('success_message', show_alert('<i class="fa fa-check"></i><strong>Berhasil!</strong> Data tersimpan.','success'));
             $this->db->insert('jenisbarang', $_POST);
             redirect('master/jenisbarang');
         }
