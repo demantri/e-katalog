@@ -16,8 +16,6 @@
 	  $this->load->view('layout/admin/navbar.php');
 	?>
 
-
-
 	<div class="wrapper">
 		<div class="container">
 			<div class="row">
@@ -76,12 +74,10 @@
 	</div><!--/.wrapper-->
 
 	<div class="footer">
-		<div class="container">
-			 
-
-			<b class="copyright">&copy; 2014 Edmin - EGrappler.com </b> All rights reserved.
-		</div>
-	</div>
+            <div class="container">
+                <b class="copyright">&copy; 2014 Edmin - EGrappler.com </b>All rights reserved.
+            </div>
+        </div>
 
 	<script src="<?php echo base_url() ?>assets2/scripts/jquery-1.9.1.min.js"></script>
 	<script src="<?php echo base_url() ?>assets2/scripts/jquery-ui-1.10.1.custom.min.js"></script>

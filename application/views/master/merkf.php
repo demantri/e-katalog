@@ -49,6 +49,13 @@
 										</div>
 
 										<div class="control-group">
+											<label class="control-label" for="basicinput">Jenis</label>
+											<div class="controls">
+												<input data-title="A tooltip for the input" type="text" placeholder="Merk" data-original-title="" class="span8 tip">
+											</div>
+										</div>
+
+										<div class="control-group">
 											<label class="control-label" for="basicinput">Merk</label>
 											<div class="controls">
 												<input data-title="A tooltip for the input" type="text" placeholder="Merk" data-original-title="" class="span8 tip">

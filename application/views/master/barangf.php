@@ -127,22 +127,15 @@
 		</div><!--/.container-->
 	</div><!--/.wrapper-->
 
-	<div class="footer">
-		<div class="container">
-			 
-
-			<b class="copyright">&copy; 2014 Edmin - EGrappler.com </b> All rights reserved.
-		</div>
-	</div>
-
-	
-
+	<?php
+		$this->load->view('layout/admin/footer.php');
+	?>
 	<script src="<?php echo base_url() ?>assets2/scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
 	<script src="<?php echo base_url() ?>assets2/scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
 	<script src="<?php echo base_url() ?>assets2/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 	<script src="<?php echo base_url() ?>assets2/scripts/flot/jquery.flot.js" type="text/javascript"></script>
 
-	<script>
+	<!-- <script>
 		$(document).ready(function(){
 		 $('#jenisbarang').change(function(){
 		  var id_jenisbarang = $('#jenisbarang').val();
@@ -166,5 +159,5 @@
 		  }
 		 });
 		});
-	</script>
+	</script> -->
 </body>

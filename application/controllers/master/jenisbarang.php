@@ -17,8 +17,7 @@ class jenisbarang extends CI_Controller{
 		$this->template->load('master/jenisv', 'dashboard', $data);
 		// $this->template->load('layout/admin/home', 'dashboard');
 	}
-
-<<<<<<< HEAD
+    
 	// public function view()
 	// {
 	// 	$data['jenis'] = $this->jenis->get_jenis();
@@ -30,14 +29,13 @@ class jenisbarang extends CI_Controller{
 	// {
 	// 	$this->template->load('master/jenisf', 'dashboard');
 	// }
-=======
+
 	public function tambah()
 	{
 		$data['kode'] = $this->jenis->id_jenis();
 		// print($data['kode']);exit;
 		$this->template->load('master/jenisf', 'dashboard', $data);
 	}
->>>>>>> 9d3a5d2aa7d44b27f0e99eb66aa85bd40e3263ab
 
 	public function save(){
         $config = array(
@@ -65,10 +63,7 @@ class jenisbarang extends CI_Controller{
         $this->form_validation->set_rules($config);
 
         if ($this->form_validation->run() == FALSE){
-            // $this->template->load('template','pelanggan_form');
-        // $sess['gagal'] = "Gagal";
-        // $this->session->set_userdata($sess);
-        $this->tambah();
+            $this->tambah();
         }else{
             $this->db->insert('jenisbarang', $_POST);
             redirect('master/jenisbarang');

@@ -17,12 +17,12 @@ class barang extends CI_Controller{
 		$this->template->load('master/barangv', 'dashboard', $data);
 	}
 
-	public function view()
-	{
-		// $data['barang'] = $this->barang->get_data();
-		// print_r($data['barang']);
-		$this->template->load('master/barangv', 'dashboard', $data);
-	}
+	// public function view()
+	// {
+	// 	// $data['barang'] = $this->barang->get_data();
+	// 	// print_r($data['barang']);
+	// 	$this->template->load('master/barangv', 'dashboard', $data);
+	// }
 
 	public function tambah()
 	{
